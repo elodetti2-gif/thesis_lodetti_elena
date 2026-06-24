@@ -9,15 +9,14 @@ def check_holiday_dates(df, holiday_dates):
     """
     Check consistency of holiday flags against a reference list of holiday dates.
     """
-    #I create a column in the database that compares the date to the list of the holidays: True=holiday date
+    # Compare dataset dates with reference holiday list
     df['IsHoliday_list'] = df['Date'].isin(holiday_dates)
-    #I create another column whoose boolean values take value True when there is a problem
+    # Identify inconsistencies between different holiday indicators
     df['Holiday_mismatch'] = ~(
     (df['IsHoliday_x'] == df['IsHoliday_y']) &
     (df['IsHoliday_x'] == df['IsHoliday_list']))
-    #I highlight the problems in a single list
+    # Extract inconsistent observations
     errors = df.loc[df['Holiday_mismatch'], ['Date', 'IsHoliday_x', 'IsHoliday_y', 'IsHoliday_list']]
-    #I check how many errors there are
     print(f"Number of inconsistencies: {errors.shape[0]}")
     print(f"\n Inconsistent dates: \n{errors}")
     return errors
@@ -50,7 +49,7 @@ def weekly_sales_distribution_boxplot(train_full_20_1, folders):
     """
     plt.figure()
     plt.boxplot(train_full_20_1['Weekly_Sales'])
-    plt.title('Weekly Sales Distribution')
+    plt.title('Weekly Sales Distribution', fontsize=16)
     median_value_weekly_sales_train = train_full_20_1['Weekly_Sales'].median()
     plt.axhline(y=median_value_weekly_sales_train, alpha=0.5, linestyle='--',
                 label=f'median = {median_value_weekly_sales_train: .2f}', color='orange')
@@ -66,10 +65,10 @@ def weekly_sales_distribution_by_holiday(train_full_20_1, folders):
     """
     plt.figure()
     train_full_20_1.boxplot(column='Weekly_Sales', by='IsHoliday')
-    plt.title('Weekly Sales Distribution by Holiday')
+    plt.title('Weekly Sales Distribution by Holiday', fontsize=16)
     plt.suptitle('')  # rimuove titolo automatico
-    plt.xlabel('IsHoliday')
-    plt.ylabel('Weekly Sales')
+    plt.xlabel('IsHoliday', fontsize=14)
+    plt.ylabel('Weekly Sales', fontsize=14)
     median_value_weekly_sales_train = train_full_20_1['Weekly_Sales'].median()
     plt.axhline(y=median_value_weekly_sales_train, alpha=0.5, linestyle='--',
                 label=f'median = {median_value_weekly_sales_train: .2f}', color='green')
@@ -85,14 +84,14 @@ def weekly_sales_distribution_by_holiday_period(train_full_20_1, folders):
     """
     plt.figure()
     train_full_20_1.boxplot(column='Weekly_Sales', by='IsHolidayPeriod')
-    plt.title('Weekly Sales Distribution by Holiday Period')
+    plt.title('Weekly Sales Distribution by Holiday Period', fontsize=16)
     plt.suptitle('')
-    plt.xlabel('Holiday Period')
-    plt.ylabel('Weekly Sales')
+    plt.xlabel('Holiday Period', fontsize=14)
+    plt.ylabel('Weekly Sales', fontsize=14)
 
     plt.xticks(
         ticks=[1, 2],
-        labels=['Non-holiday period', 'Holiday period'])
+        labels=['Non-holiday period', 'Holiday period'], fontsize=14)
 
     so.save_plot("weekly_sales_distribution_by_holiday_period", folders)
     # plt.show()
@@ -139,15 +138,16 @@ def feature_averages_comparison_overall_vs_sales_outliers(train_full_20_1, folde
         figsize=(20, 10)
     )
 
-    ax.set_title('Feature Averages: Overall vs Sales Outliers')
-    ax.set_ylabel('Average value')
-    ax.set_xlabel('Feature')
-    ax.legend()
+    ax.set_title('Feature Averages: Overall vs Sales Outliers', fontsize=26)
+    ax.set_ylabel('Average value', fontsize=20)
+    ax.set_xlabel('Feature', fontsize=20)
+    ax.legend(fontsize=20)
 
     for container in ax.containers:
-        ax.bar_label(container, fmt='%.2f', padding=3, fontsize=10)
+        ax.bar_label(container, fmt='%.2f', padding=3,label_type='center', fontsize=11)
 
-    plt.xticks(rotation=45, ha='right')
+    plt.xticks(rotation=45, ha='right', fontsize=20)
+    plt.yticks(fontsize=20)
     plt.tight_layout()
     so.save_plot("feature_averages_comparison_overall_vs_sales_outliers", folders)
     # plt.show()

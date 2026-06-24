@@ -32,18 +32,18 @@ def residual_analysis(model_values, folders):
         ax.axhline(0, linestyle='--')
 
         ax.set_title(
-            f"Fold {i+1}\n{model_values['model_name']} on TimeSeriesSplit"
+            f"Fold {i+1}\n{model_values['model_name']} on TimeSeriesSplit", fontsize=18
         )
 
-        ax.set_ylabel("Residuals")
+        ax.set_ylabel("Residuals", fontsize=16)
 
         step = max(len(x) // 8, 1)
         ax.set_xticks(list(x)[::step])
-        ax.set_xticklabels(labels[::step], rotation=45)
+        ax.set_xticklabels(labels[::step], rotation=45, fontsize=14)
 
         ax.grid(True, alpha=0.5)
 
-    axes[-1].set_xlabel("Week (Year–Week)")
+    axes[-1].set_xlabel("Week (Year–Week)", fontsize=16)
 
     plt.tight_layout()
 
@@ -75,7 +75,7 @@ def comparison_predicted_actual_weekly_sales_TSS(model_values, folders):
 
         ax.set_title(
             f"Fold {i+1} - Predicted vs Actual\n"
-            f"{model_values['model_name']} on TimeSeriesSplit"
+            f"{model_values['model_name']} on TimeSeriesSplit", fontsize=16
         )
 
         ax.plot(
@@ -91,12 +91,12 @@ def comparison_predicted_actual_weekly_sales_TSS(model_values, folders):
         )
 
         ax.set_xticks(range(len(x_labels)))
-        ax.set_xticklabels(x_labels, rotation=45)
+        ax.set_xticklabels(x_labels, rotation=45, fontsize=14)
 
-        ax.legend()
+        ax.legend(fontsize=14)
         ax.grid(True, alpha=0.5)
 
-    axes[-1].set_xlabel("Week (Year–Week)")
+    axes[-1].set_xlabel("Week (Year–Week)", fontsize=14)
 
     plt.tight_layout()
 
@@ -128,7 +128,7 @@ def model_comparison_lr_rf(model_values_1, model_values_2, folders):
         ]
 
         ax.set_title(
-            f"Fold {i+1} - Linear Regression vs Random Forest"
+            f"Fold {i+1} - Linear Regression vs Random Forest", fontsize=16
         )
 
         # Actual
@@ -152,11 +152,11 @@ def model_comparison_lr_rf(model_values_1, model_values_2, folders):
             label=model_values_2['model_name']
         )
 
-        ax.tick_params(axis='x', rotation=45)
+        ax.tick_params(axis='x', rotation=45, labelsize=14)
         ax.grid(True, alpha=0.5)
-        ax.legend()
+        ax.legend(fontsize=14)
 
-    axes[-1].set_xlabel("Week (Year–Week)")
+    axes[-1].set_xlabel("Week (Year–Week)", fontsize=14)
 
     plt.tight_layout()
 
@@ -196,17 +196,17 @@ def residual_analysis_comparison_lr_rf(model_values_1, model_values_2, folders):
                 label=model_values_2['model_name'])
 
         ax.axhline(0, linestyle='--')
-        ax.set_title(f"Fold {i+1}")
-        ax.set_ylabel("Residuals")
+        ax.set_title(f"Fold {i+1}", fontsize=16)
+        ax.set_ylabel("Residuals", fontsize=14)
 
         step = max(len(x) // 8, 1)
         ax.set_xticks(list(x)[::step])
-        ax.set_xticklabels(labels[::step], rotation=45)
+        ax.set_xticklabels(labels[::step], rotation=45, fontsize=14)
 
         ax.grid(True, alpha=0.5)
-        ax.legend()
+        ax.legend(fontsize=14)
 
-    axes[-1].set_xlabel("Week (Year–Week)")
+    axes[-1].set_xlabel("Week (Year–Week)", fontsize=14)
 
     plt.tight_layout()
 

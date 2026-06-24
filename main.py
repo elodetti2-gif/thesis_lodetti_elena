@@ -294,7 +294,7 @@ def main():
 
     #VALIDATION STRATEGY DEFINITION
     #CHRONOLOGICAL HOLD-OUT VALIDATION
-    # Split data into training and validation sets using chronological order (time series split)
+    # Split data into training and validation sets using chronological order
     X_train_50, X_val_50, y_train_50, y_val_50 = mvs.chronological_hold_out_validation(X, y)
 
     #TIMESERIESSPLIT CROSS-VALIDATION

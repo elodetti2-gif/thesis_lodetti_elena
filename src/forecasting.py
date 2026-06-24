@@ -48,13 +48,13 @@ def forecasted_weekly_sales_plot(test_full_20_1, folders):
     """
     fig, ax = plt.subplots(figsize=(10, 4))
     ax.plot(test_full_20_1["Date"], test_full_20_1["Predicted_Weekly_Sales"], label='Predicted sales over time')
-    ax.set_title("Forecasted Weekly Sales on Test Set")
-    ax.set_xlabel("Date")
-    ax.set_ylabel("Weekly Sales")
+    ax.set_title("Forecasted Weekly Sales on Test Set", fontsize=18)
+    ax.set_xlabel("Date", fontsize=16)
+    ax.set_ylabel("Weekly Sales", fontsize=16)
 
     plt.tight_layout()
     plt.grid(True, alpha=0.5)
-    plt.legend()
+    plt.legend(fontsize=14)
     so.save_plot("forcasted_weekly_sales_plot", folders)
     # plt.show()
 
