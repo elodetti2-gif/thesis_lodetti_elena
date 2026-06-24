@@ -1,4 +1,4 @@
-# Demand Forecasting for Retail Store Using Machine Learning
+# Demand Forecasting for Retail Store Using Machine Learning (with Python)
 
 ## Project Overview
 This thesis project focuses on weekly demand forecasting for a retail store using machine learning techniques.  
