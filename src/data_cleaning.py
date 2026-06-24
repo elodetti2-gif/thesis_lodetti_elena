@@ -134,19 +134,19 @@ def feature_averages_comparison_overall_vs_sales_outliers(train_full_20_1, folde
     })
 
     ax = mean_comparison.plot(
-        kind='bar',
-        figsize=(20, 10)
+        kind='barh',
+        figsize=(18, 8)
     )
 
     ax.set_title('Feature Averages: Overall vs Sales Outliers', fontsize=26)
-    ax.set_ylabel('Average value', fontsize=20)
-    ax.set_xlabel('Feature', fontsize=20)
+    ax.set_xlabel('Average value', fontsize=20)
+    ax.set_ylabel('Feature', fontsize=20)
     ax.legend(fontsize=20)
 
     for container in ax.containers:
-        ax.bar_label(container, fmt='%.2f', padding=3,label_type='center', fontsize=11)
+        ax.bar_label(container, fmt='%.2f', padding=3, fontsize=14)
 
-    plt.xticks(rotation=45, ha='right', fontsize=20)
+    plt.xticks(ha='right', fontsize=20)
     plt.yticks(fontsize=20)
     plt.tight_layout()
     so.save_plot("feature_averages_comparison_overall_vs_sales_outliers", folders)
