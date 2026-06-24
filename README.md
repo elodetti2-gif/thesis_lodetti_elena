@@ -34,35 +34,35 @@ The project follows a complete machine learning pipeline structured into the fol
 
 ## Project Structure
 ```text
-data/
-├── features.csv
-├── stores.csv
-├── train.csv
-├── test.csv
+data/  #Raw input datasets
+├── features.csv  #Store-level and regional conditions
+├── stores.csv  #Store information
+├── train.csv  #Historical sales data for training
+├── test.csv  #Data for sales forecasting
 
 src/
-├── data_preparation.py
-├── data_cleaning.py
-├── exploratory_data_analysis.py
-├── feature_engineering.py
-├── modelling_and_validation_strategy.py
-├── model_selection.py
-├── forecasting.py
-├── final_model_evaluation.py
-├── final_model_explanation.py
-├── saving_output.py
+├── data_preparation.py  #Data loading, filterning and merging
+├── data_cleaning.py  #Consistency checks, missing data handling and outlier analysis
+├── exploratory_data_analysis.py  #Data exploration and descriptive analysis
+├── feature_engineering.py  #Feature generation, transformation and selection
+├── modelling_and_validation_strategy.py  #Data preparation and validation strategy definition
+├── model_selection.py  #Model training, evaluation, comparison and final selection
+├── forecasting.py  #Sales forecasting on the test dataset
+├── final_model_evaluation.py  #Final performance assessment
+├── final_model_explanation.py #Model interpretation and feature importance analysis
+├── saving_output.py #Output generation and storage
 ├── __init__.py
 
-output/
-├── run_id (timestamped folder)
-│   ├── dataset/
-│   ├── graph/
-│   ├── table/
-│   ├── text/
+output/  #Generated outputs
+├── run_id #Timestamped folder for each execution
+│   ├── dataset/ #Processed datasets (.csv)
+│   ├── graph/ #Plots and visualizations (.png)
+│   ├── table/ #Excel result tables (.xlsx)
+│   ├── text/  #Logs and textual reports (.txt)
 
-main.py
-requirements.txt
-README.md
+main.py  #Main pipeline orchestrator
+requirements.txt  #Project dependencies
+README.md  #This file
 ```
 
 ## Installation
